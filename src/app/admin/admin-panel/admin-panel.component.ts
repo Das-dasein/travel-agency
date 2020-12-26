@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
   styleUrls: ['./admin-panel.component.scss']
 })
-export class AdminPanelComponent implements OnInit {
+export class AdminPanelComponent {
+  items = [{
+    link: 'tours',
+    title: 'Туры'
+  }, {
+    link: 'insights',
+    title: 'Чарты'
+  }];
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(public route: ActivatedRoute) {
   }
-
 }

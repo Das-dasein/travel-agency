@@ -4,6 +4,7 @@ import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function migrationFactory() {
   // The animal table was added with version 2 but none of the existing tables or data needed
