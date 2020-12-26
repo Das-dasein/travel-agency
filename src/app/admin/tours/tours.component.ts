@@ -1,5 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Tour } from 'src/app/model';
 
@@ -35,8 +36,14 @@ export class ToursComponent {
       if (!data) {
         return;
       }
+      let obs: Observable<any>;
 
-      const obs = data.id !== undefined && data.id !== null ? this.api.updateTour(data) : this.api.addTour(data);
+      if (data.id === undefined) {
+        delete data.id;
+        obs = this.api.addTour(data);
+      } else {
+        obs = this.api.updateTour(data);
+      }
 
       this.tours$ = obs.pipe(tap(() => {
         this.toastr.success('Успешно')

@@ -30,8 +30,13 @@ export class EditTourComponent implements OnInit {
         end: this.tour.endDate ? new Date(this.tour.endDate) : new Date()
       },
       city: this.tour.city || '',
+      country: this.tour.country || '',
       price: this.tour.price || 0,
-      images: this.fb.control(this.tour.images || [])
+      images: this.fb.control(this.tour.images || []),
+      hotel: this.fb.group({
+        rating: (this.tour.hotel || {}).rating || 0,
+        name: (this.tour.hotel || {}).name || ''
+      })
     })
   }
 
