@@ -10,10 +10,12 @@ import {NbMenuItem} from '@nebular/theme';
 export class AdminPanelComponent {
   items: NbMenuItem[] = [{
     link: 'tours',
-    title: 'Туры'
+    title: 'Туры',
+    icon: 'grid-outline',
   }, {
     link: 'insights',
-    title: 'Чарты'
+    title: 'Чарты',
+    icon: 'pie-chart-outline'
   }];
 
 
