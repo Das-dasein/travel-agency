@@ -1,0 +1,29 @@
+<nb-card [formGroup]="form" style="width: 80vw;" [size]="'large'">
+    <nb-card-header>Тур</nb-card-header>
+    <nb-card-body>
+        <div class="form-group">
+            <label class="label">Описание</label>
+            <textarea formControlName="description" nbInput placeholder="Описание" fullWidth></textarea>
+        </div>
+        <div class="form-group">
+            <label class="label">Цена</label>
+            <input formControlName="price" nbInput type="number" placeholder="Цена" fullWidth />
+        </div>
+        <div class="form-group">
+            <label class="label d-block">Время отправления - прибытия</label>
+            <input formControlName="range" nbInput [nbDatepicker]="formpicker">
+            <nb-rangepicker #formpicker></nb-rangepicker>
+        </div>
+        <div class="form-group">
+            <label class="label d-block">Картинки</label>
+            <div class="d-flex align-items-center col-2 mb-2 flex-column" style="object-fit: contain;" *ngFor="let image of images.value; let i = index">
+                <img class="w-100" style="height: 80px;" [src]="image | safeHtml:'url'">
+            </div>
+            <button status="primary" nbButton (click)="addImage()">Добавить картинку</button>
+        </div>
+    </nb-card-body>
+    <nb-card-footer class="d-flex">
+        <button nbButton (click)="ref.close()">Закрыть</button>
+        <button class="ml-auto" nbButton (click)="handleSave()" status="primary">Сохранить</button>
+    </nb-card-footer>
+</nb-card>

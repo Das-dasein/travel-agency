@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {NbMenuItem} from '@nebular/theme';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-admin-panel',
@@ -9,13 +9,16 @@ import {NbMenuItem} from '@nebular/theme';
 })
 export class AdminPanelComponent {
   items: NbMenuItem[] = [{
+    home: true,
     link: 'tours',
     title: 'Туры',
     icon: 'grid-outline',
+    // pathMatch: 'prefix'
   }, {
     link: 'insights',
     title: 'Чарты',
-    icon: 'pie-chart-outline'
+    icon: 'pie-chart-outline',
+    // pathMatch: 'prefix'
   }];
 
 

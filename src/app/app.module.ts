@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NbCardModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { NbCardModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { SafeHtmlPipe } from './admin/safe-html.pipe';
 
 export function migrationFactory() {
@@ -35,7 +36,8 @@ const dbConfig: DBConfig = {
         { name: 'image', keypath: 'image', options: { unique: false } },
         { name: 'description', keypath: 'description', options: { unique: false } },
         { name: 'country', keypath: 'country', options: { unique: false } },
-        { name: 'hotel', keypath: 'hotel', options: { unique: false } }
+        { name: 'hotel', keypath: 'hotel', options: { unique: false } },
+        { name: 'price', keypath: 'price', options: { unique: false } }
       ]
     }]
 };
@@ -44,12 +46,14 @@ const dbConfig: DBConfig = {
   declarations: [
     AppComponent,
   ],
-  imports: [
+  imports: [BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     NbThemeModule.forRoot(),
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbDatepickerModule.forRoot(),
     NbEvaIconsModule,
     NgxIndexedDBModule.forRoot(dbConfig)
   ],
