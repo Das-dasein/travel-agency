@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { ID, Tour } from '../model';
 
@@ -14,7 +15,15 @@ export class TourService {
     return this.api.getAll('tour');
   }
 
-  removeTour(id: ID) {
+  removeTour(id: ID): Observable<Tour[]> {
     return this.api.delete('tour', id);
+  }
+
+  addTour(tour: Tour): Observable<Tour[]> {
+    return this.api.add('tour', tour).pipe(switchMap(() => this.getTours()))
+  }
+
+  updateTour(tour: Tour): Observable<Tour[]> {
+    return this.api.update('tour', tour);
   }
 }

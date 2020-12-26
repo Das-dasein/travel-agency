@@ -25,7 +25,11 @@ export class EditTourComponent implements OnInit {
 
     this.form = this.fb.group({
       description: this.tour.description,
-      range: null,
+      range: {
+        start: this.tour.startDate ? new Date(this.tour.startDate) : new Date(),
+        end: this.tour.endDate ? new Date(this.tour.endDate) : new Date()
+      },
+      city: this.tour.city || '',
       price: this.tour.price || 0,
       images: this.fb.control(this.tour.images || [])
     })
@@ -54,6 +58,12 @@ export class EditTourComponent implements OnInit {
   }
 
   handleSave() {
-    console.log(this.form)
+    const { range, ...common } = this.form.value;
+    this.ref.close({
+      id: this.tour.id,
+      ...common,
+      startDate: +range.start,
+      endDate: +range.end,
+    })
   }
 }

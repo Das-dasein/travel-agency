@@ -6,6 +6,10 @@
             <textarea formControlName="description" nbInput placeholder="Описание" fullWidth></textarea>
         </div>
         <div class="form-group">
+            <label class="label">Город</label>
+            <input formControlName="city" nbInput placeholder="Город" fullWidth/>
+        </div>
+        <div class="form-group">
             <label class="label">Цена</label>
             <input formControlName="price" nbInput type="number" placeholder="Цена" fullWidth />
         </div>
@@ -16,8 +20,11 @@
         </div>
         <div class="form-group">
             <label class="label d-block">Картинки</label>
-            <div class="d-flex align-items-center col-2 mb-2 flex-column" style="object-fit: contain;" *ngFor="let image of images.value; let i = index">
-                <img class="w-100" style="height: 80px;" [src]="image | safeHtml:'url'">
+            <div class="row">
+                <div class="d-flex align-items-center col-2 mb-2 flex-column" style="object-fit: contain;"
+                    *ngFor="let image of images.value; let i = index">
+                    <img class="w-100" style="height: 80px;" [src]="image | safeHtml:'url'">
+                </div>
             </div>
             <button status="primary" nbButton (click)="addImage()">Добавить картинку</button>
         </div>

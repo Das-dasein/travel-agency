@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
-import { switchMap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { Tour } from 'src/app/model';
 
 import { TourService } from '../tour.service';
@@ -31,7 +31,13 @@ export class ToursComponent {
       context: {
         tour
       }
-    }).onClose.subscribe(data => console.log(data));
+    }).onClose.subscribe((data: Tour) => {
+      const obs = data.id !== undefined && data.id !== null ? this.api.updateTour(data) : this.api.addTour(data);
+
+      this.tours$ = obs.pipe(tap(() => {
+        this.toastr.success('Успешно')
+      }));
+    });
   }
 
   removeTour(tour: Tour) {

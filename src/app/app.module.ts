@@ -37,7 +37,9 @@ const dbConfig: DBConfig = {
         { name: 'description', keypath: 'description', options: { unique: false } },
         { name: 'country', keypath: 'country', options: { unique: false } },
         { name: 'hotel', keypath: 'hotel', options: { unique: false } },
-        { name: 'price', keypath: 'price', options: { unique: false } }
+        { name: 'price', keypath: 'price', options: { unique: false } },
+        { name: 'startDate', keypath: 'startDate', options: { unique: false } },
+        { name: 'endDate', keypath: 'endDate', options: { unique: false } },
       ]
     }]
 };
