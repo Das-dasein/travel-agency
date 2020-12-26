@@ -5,12 +5,15 @@ import {RouterModule} from '@angular/router';
 import {NgbNavModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToursComponent} from './tours/tours.component';
 import {InsightsComponent} from './insights/insights.component';
+import {NbCardModule, NbLayoutModule, NbMenuModule, NbSidebarModule} from '@nebular/theme';
 
 @NgModule({
   declarations: [AdminPanelComponent, ToursComponent, InsightsComponent],
   imports: [
     CommonModule,
-    NgbNavModule,
+    NbLayoutModule,
+    NbMenuModule,
+    NbCardModule,
     RouterModule.forChild([{
       path: '',
       component: AdminPanelComponent,
@@ -24,7 +27,8 @@ import {InsightsComponent} from './insights/insights.component';
           component: InsightsComponent
         }
       ]
-    }])
+    }]),
+    NbSidebarModule
   ]
 })
 export class AdminModule {

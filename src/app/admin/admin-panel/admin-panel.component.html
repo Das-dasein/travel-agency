@@ -1,9 +1,8 @@
-<div class="d-flex">
-  <ul ngbNav [activeId]="route.fragment | async" class="nav-pills" orientation="vertical">
-    <li *ngFor="let menuItem of items" [ngbNavItem]="menuItem.link">
-      <a ngbNavLink [routerLink]="menuItem.link">{{menuItem.title}}</a>
-    </li>
-  </ul>
-
-  <router-outlet></router-outlet>
-</div>
+<nb-layout>
+  <nb-sidebar>
+    <nb-menu [items]="items"></nb-menu>
+  </nb-sidebar>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+</nb-layout>

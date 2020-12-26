@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {NbMenuItem} from '@nebular/theme';
 
 @Component({
   selector: 'app-admin-panel',
@@ -7,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent {
-  items = [{
+  items: NbMenuItem[] = [{
     link: 'tours',
     title: 'Туры'
   }, {
@@ -18,4 +19,5 @@ export class AdminPanelComponent {
 
   constructor(public route: ActivatedRoute) {
   }
+
 }
