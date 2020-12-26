@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TourService } from '../tour.service';
 
 @Component({
   selector: 'app-tours',
   templateUrl: './tours.component.html',
-  styleUrls: ['./tours.component.scss']
+  styleUrls: ['./tours.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ToursComponent implements OnInit {
+export class ToursComponent {
+  tours$ = this.api.getTours();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private readonly api: TourService) { }
 }

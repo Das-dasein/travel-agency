@@ -1,4 +1,9 @@
-<nb-card class="col-md-6" [size]="'small'">
-  <nb-card-header>23</nb-card-header>
-  <nb-card-body>123</nb-card-body>
+<nb-card class="card" *ngFor="let tour of tours$ | async" [size]="'medium'">
+  <img class="col-4 px-0 picture" [src]="tour.images[0] | safeHtml:'url'" />
+  <div class="details">
+    <span class="h4">{{tour.city}}</span>
+    <div class="description">
+      {{tour.description}}
+    </div>
+  </div>
 </nb-card>

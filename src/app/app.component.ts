@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {NgxIndexedDBService} from 'ngx-indexed-db';
-
+import { Component } from '@angular/core';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
+import * as migration from '../assets/migration.json';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,10 +11,7 @@ export class AppComponent {
 
   constructor(private dbService: NgxIndexedDBService) {
     // this.dbService
-    //   .add('people', {
-    //     name: `Bruce Wayne`,
-    //     email: `bruce@wayne.com`,
-    //   })
+    //   .add('tour', migration[0])
     //   .subscribe((key) => {
     //     console.log('key: ', key);
     //   });

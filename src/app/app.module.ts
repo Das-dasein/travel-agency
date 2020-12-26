@@ -1,10 +1,11 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { DBConfig, NgxIndexedDBModule } from 'ngx-indexed-db';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {NbCardModule, NbMenuModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NbCardModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { SafeHtmlPipe } from './admin/safe-html.pipe';
 
 export function migrationFactory() {
   // // The animal table was added with version 2 but none of the existing tables or data needed
@@ -27,18 +28,20 @@ const dbConfig: DBConfig = {
   objectStoresMeta: [
     {
       store: 'tour',
-      storeConfig: {keyPath: 'id', autoIncrement: true},
+      storeConfig: { keyPath: 'id', autoIncrement: true },
       storeSchema: [
-        {name: 'name', keypath: 'name', options: {unique: true}},
-        {name: 'image', keypath: 'image', options: {unique: false}},
-        {name: 'description', keypath: 'description', options: {unique: false}}
+        { name: 'name', keypath: 'name', options: { unique: true } },
+        { name: 'image', keypath: 'image', options: { unique: false } },
+        { name: 'description', keypath: 'description', options: { unique: false } },
+        { name: 'country', keypath: 'country', options: { unique: false } },
+        { name: 'hotel', keypath: 'hotel', options: { unique: false } }
       ]
     }]
 };
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
