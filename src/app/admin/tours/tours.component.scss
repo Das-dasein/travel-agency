@@ -6,7 +6,7 @@
 .picture {
     height: 100%;
     object-fit: fill;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
 }
 
 .card {
@@ -21,4 +21,12 @@ nb-icon {
 .tours-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+:host::ng-deep {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+        height: 100%;
+    }
 }

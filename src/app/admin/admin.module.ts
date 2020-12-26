@@ -10,6 +10,7 @@ import { InsightsComponent } from './insights/insights.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { EditTourComponent } from './tours/edit-tour/edit-tour.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, SafeHtmlPipe, EditTourComponent],
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       position: NbGlobalLogicalPosition.BOTTOM_END
     }),
     NbDialogModule.forChild(),
+    NgbCarouselModule,
     RouterModule.forChild([{
       path: '',
       component: AdminPanelComponent,

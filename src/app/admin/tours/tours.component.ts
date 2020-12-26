@@ -31,7 +31,11 @@ export class ToursComponent {
       context: {
         tour
       }
-    }).onClose.subscribe((data: Tour) => {
+    }).onClose.subscribe((data: Tour | null) => {
+      if (!data) {
+        return;
+      }
+
       const obs = data.id !== undefined && data.id !== null ? this.api.updateTour(data) : this.api.addTour(data);
 
       this.tours$ = obs.pipe(tap(() => {
