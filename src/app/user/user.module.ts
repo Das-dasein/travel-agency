@@ -5,9 +5,11 @@ import { MainPageComponent } from "./main-page/main-page.component";
 import { SearchBarComponent } from "./search-bar/search-bar.component";
 import { RouterModule } from "@angular/router";
 import { ToursComponent } from './tours/tours.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
-  declarations: [MainPageComponent, SearchBarComponent, ToursComponent],
+  declarations: [MainPageComponent, SearchBarComponent, ToursComponent, ContactsComponent, AboutUsComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([{
@@ -16,6 +18,12 @@ import { ToursComponent } from './tours/tours.component';
     }, {
       path: 'tours',
       component: ToursComponent,
+    }, {
+      path: 'about-us',
+      component: AboutUsComponent,
+    }, {
+      path: 'contacts',
+      component: ContactsComponent,
     }]),
   ]
 })
