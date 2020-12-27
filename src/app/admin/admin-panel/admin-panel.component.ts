@@ -24,6 +24,10 @@ export class AdminPanelComponent {
     title: 'Обращения',
     icon: 'book-open-outline',
     // pathMatch: 'prefix'
+  }, {
+    link: 'orders',
+    title: 'Заказы',
+    icon: 'people-outline'
   }];
 
 

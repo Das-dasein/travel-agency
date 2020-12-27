@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map, share } from 'rxjs/operators';
+import { Tour } from 'src/app/model';
 import { TourService } from 'src/app/tour.service';
 import { FilterState } from '../search-bar/search-bar.component';
 
@@ -50,7 +51,7 @@ export class ToursComponent {
     this.filterState.next(state);
   }
 
-  handleOrder(template: TemplateRef<any>) {
+  handleOrder(template: TemplateRef<any>, tour: Tour) {
     const form = new FormGroup({
       name: new FormControl(),
       email: new FormControl(),
@@ -66,11 +67,12 @@ export class ToursComponent {
       if (result) {
         this.api.addOrder({
           ...form.value,
-          status: 'IN_PROGRESS'
+          status: 'IN_PROGRESS',
+          tour: tour.id
         });
 
         this.toastr.success('Ваша заявка успешно создана', 'Успешно');
       }
-  });
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { NbActionsModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbFormFieldModule, NbIconModule, NbInputModule, NbLayoutModule, NbListModule, NbMenuModule, NbSidebarModule, NbToastrModule, NbUserModule } from '@nebular/theme';
 import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,8 @@ const modules = [
   NbListModule,
   NbUserModule,
   NbActionsModule,
-  NbFormFieldModule
+  NbFormFieldModule,
+  Ng2SmartTableModule
 ]
 
 @NgModule({

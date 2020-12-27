@@ -29,7 +29,7 @@ export function migrationFactory() {
 
 const dbConfig: DBConfig = {
   name: 'MyDb',
-  version: 5,
+  version: 6,
   objectStoresMeta: [
     {
       store: 'tour',
@@ -99,6 +99,9 @@ const dbConfig: DBConfig = {
         },
         {
           name: 'description', keypath: 'description', options: { unique: false }
+        },
+        {
+          name: 'tour', keypath: 'order', options: { unique: false }
         }
       ]
     },

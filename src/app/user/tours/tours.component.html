@@ -10,7 +10,7 @@
                         <img class="picture w-100" [src]="image | safeHtml:'url'">
                     </ng-template>
                 </ngb-carousel>
-                <button (click)="handleOrder(tourTemplate)" class="price-button" style="width: 154px;" status="warning"
+                <button (click)="handleOrder(tourTemplate, tour)" class="price-button" style="width: 154px;" status="warning"
                     shape="round" nbButton>{{tour.price}} Р</button>
             </nb-card-header>
 
