@@ -61,10 +61,11 @@ export class OrdersComponent {
         }
       }).onClose.subscribe((status) => {
         if (status) {
-          this.orders$ = this.api.updateOrder({
-            ...data,
-            status
-          });
+          this.orders$ = status === 'CLOSED' ? this.api.deleteOrder(data.id) :
+            this.api.updateOrder({
+              ...data,
+              status
+            });
         }
       });
     });

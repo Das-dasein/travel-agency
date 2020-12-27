@@ -58,4 +58,8 @@ export class TourService {
   updateOrder(order: Order): Observable<Order[]> {
     return this.api.update('order', order);
   }
+
+  deleteOrder(id: ID): Observable<Order[]> {
+    return this.api.delete('order', id);
+  }
 }
