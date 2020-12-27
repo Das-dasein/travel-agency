@@ -1,16 +1,16 @@
 <div [formGroup]="form" class="search-bar">
   <div class="department-field-search">
     <span>Место назначения</span>
-    <input formControlName="placement" nbInput placeholder="Страна" />
+    <input class="mt-2" formControlName="placement" nbInput placeholder="Страна" />
   </div>
   <div class="date-picker-search">
     <span>Дата отправления и прибытия</span>
-    <input class="date-picker" formControlName="range" nbInput [nbDatepicker]="formpicker">
+    <input class="date-picker mt-2" formControlName="range" nbInput [nbDatepicker]="formpicker">
     <nb-rangepicker #formpicker></nb-rangepicker>
   </div>
   <div>
     <span>Лимит стоимости</span>
-    <input formControlName="price" nbInput type="number" placeholder="Цена" />
+    <input class="mt-2" formControlName="price" nbInput type="number" placeholder="Цена" />
   </div>
   <div class="search-button" (click)="handleSearchTours()"><span>Найти</span></div>
 </div>
