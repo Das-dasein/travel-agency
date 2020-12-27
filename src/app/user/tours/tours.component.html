@@ -1,3 +1,40 @@
-<div class="tours-page-container">
+<div class="tours-page-container position-relative">
+    <app-search-bar class="search-bar"></app-search-bar>
+</div>
+<div class="w-75 ml-auto mr-auto d-flex flex-wrap mt-3">
+    <div class="col-4" *ngFor="let tour of tours$ | async">
+        <nb-card size="medium">
+            <nb-card-header class="p-0 position-relative">
+                <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [pauseOnHover]="true">
+                    <ng-template ngbSlide *ngFor="let image of tour.images">
+                        <img class="picture w-100" [src]="image | safeHtml:'url'">
+                    </ng-template>
+                </ngb-carousel>
+                <button class="price-button" status="warning" shape="round" nbButton>{{tour.price}} Р / человек</button>
+            </nb-card-header>
 
+            <div class="details p-4">
+                <span class="h5 d-flex">
+                    <div class="d-flex flex-column">
+                        <div>
+                            {{tour.country}}, {{tour.city}}
+                        </div>
+                        <div class="h6">
+                            {{tour.hotel?.name}}
+                            <ngb-rating class="ml-2" [readonly]="true" [max]="tour.hotel?.rating">
+                                <ng-template let-fill="fill">
+                                    <nb-icon [style.color]="'gold'" icon="star"></nb-icon>
+                                </ng-template>
+                            </ngb-rating>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </nb-card>
+    </div>
+
+
+    <!-- <div *ngFor="let tour of tours$ | async">
+        {{tour | json}}
+    </div> -->
 </div>
