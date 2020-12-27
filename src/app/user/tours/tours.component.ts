@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NbDialogService, NbToastrService } from '@nebular/theme';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { map, share } from 'rxjs/operators';
 import { TourService } from 'src/app/tour.service';
@@ -42,9 +44,33 @@ export class ToursComponent {
       return tour;
     })));
 
-  constructor(private readonly api: TourService, private router: ActivatedRoute) { }
+  constructor(private readonly api: TourService, private dialog: NbDialogService, private toastr: NbToastrService) { }
 
   handleSearch(state: FilterState) {
     this.filterState.next(state);
+  }
+
+  handleOrder(template: TemplateRef<any>) {
+    const form = new FormGroup({
+      name: new FormControl(),
+      email: new FormControl(),
+      phone: new FormControl(),
+      description: new FormControl()
+    });
+
+    this.dialog.open(template, {
+      context: {
+        form
+      }
+    }).onClose.subscribe(result => {
+      if (result) {
+        this.api.addOrder({
+          ...form.value,
+          status: 'IN_PROGRESS'
+        });
+
+        this.toastr.success('Ваша заявка успешно создана', 'Успешно');
+      }
+    });
   }
 }

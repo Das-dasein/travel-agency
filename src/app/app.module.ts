@@ -29,7 +29,7 @@ export function migrationFactory() {
 
 const dbConfig: DBConfig = {
   name: 'MyDb',
-  version: 3,
+  version: 4,
   objectStoresMeta: [
     {
       store: 'tour',
@@ -80,7 +80,25 @@ const dbConfig: DBConfig = {
           name: 'message', keypath: 'message', options: { unique: false }
         }
       ]
-    }
+    },
+    {
+      store: 'order',
+      storeConfig: { keyPath: 'id', autoIncrement: true },
+      storeSchema: [
+        {
+          name: 'name', keypath: 'name', options: { unique: false }
+        },
+        {
+          name: 'email', keypath: 'email', options: { unique: false }
+        },
+        {
+          name: 'phone', keypath: 'phone', options: { unique: false }
+        },
+        {
+          name: 'description', keypath: 'description', options: { unique: false }
+        }
+      ]
+    },
   ]
 };
 
