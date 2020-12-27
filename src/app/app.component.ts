@@ -11,7 +11,12 @@ export class AppComponent {
 
   constructor(private dbService: NgxIndexedDBService) {
     // this.dbService
-    //   .add('tour', migration[0])
+    //   .add('operator', {
+    //     name: 'Alex George',
+    //     company: 'Nebular',
+    //     phone: '8-800-555-35-35',
+    //     email: 'alex@george.com'
+    //   })
     //   .subscribe((key) => {
     //     console.log('key: ', key);
     //   });

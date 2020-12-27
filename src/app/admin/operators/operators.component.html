@@ -1,0 +1,65 @@
+<nb-card size="giant">
+    <nb-card-header>
+        <h4>
+            Туристические операторы
+        </h4>
+    </nb-card-header>
+    <nb-card-body>
+        <nb-list>
+            <nb-list-item *ngFor="let operator of operators$ | async">
+                <nb-user size="large" [name]="operator.name" [title]="operator.company"></nb-user>
+                <div class="ml-auto d-flex">
+                    <a [attr.href]="'mailto:'+operator.email">
+                        <nb-icon icon="email-outline"></nb-icon>
+                    </a>
+                    <a class="ml-3" [attr.href]="'tel:'+operator.phone">
+                        <nb-icon icon="phone-outline"></nb-icon>
+                    </a>
+                </div>
+            </nb-list-item>
+        </nb-list>
+    </nb-card-body>
+    <nb-card-footer>
+        <nb-action style="cursor: pointer;" fullWidth (click)="handleAddOperator(addOperatorTemplate)">
+            <nb-icon class="mr-2" icon="plus-outline"></nb-icon>
+            Добавить оператора
+        </nb-action>
+    </nb-card-footer>
+</nb-card>
+
+
+<ng-template #addOperatorTemplate let-data let-ref="dialogRef">
+    <nb-card [formGroup]="data.form">
+        <nb-card-header>
+            Добавить оператора
+        </nb-card-header>
+        <nb-card-body>
+            <div class="form-group">
+                <label class="label d-block">Тур. компания</label>
+                <input formControlName="name" nbInput fullWidth type="text">
+            </div>
+            <div class="form-group">
+                <label class="label d-block">Представитель компании</label>
+                <input formControlName="company" nbInput fullWidth type="text">
+            </div>
+            <div class="form-group">
+                <label class="label">Email</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+                    <input formControlName="email" type="text" nbInput>
+                </nb-form-field>
+            </div>
+            <div class="form-group">
+                <label class="label">Номер телефона</label>
+                <nb-form-field>
+                    <nb-icon nbPrefix icon="phone-outline" pack="eva"></nb-icon>
+                    <input formControlName="phone" type="text" nbInput>
+                </nb-form-field>
+            </div>
+        </nb-card-body>
+        <nb-card-footer class="d-flex">
+            <button (click)="ref.close(false)" nbButton status="basic">Закрыть</button>
+            <button (click)="ref.close(true)" class="ml-auto" nbButton status="primary">Добавить</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>

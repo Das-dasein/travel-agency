@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NbButtonModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { SharedModule } from 'src/shared/shared.module';
 import { AuthGuard } from './auth.guard';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 export function migrationFactory() {
   // // The animal table was added with version 2 but none of the existing tables or data needed
@@ -27,7 +28,7 @@ export function migrationFactory() {
 
 const dbConfig: DBConfig = {
   name: 'MyDb',
-  version: 2,
+  version: 3,
   objectStoresMeta: [
     {
       store: 'tour',
@@ -41,6 +42,24 @@ const dbConfig: DBConfig = {
         { name: 'price', keypath: 'price', options: { unique: false } },
         { name: 'startDate', keypath: 'startDate', options: { unique: false } },
         { name: 'endDate', keypath: 'endDate', options: { unique: false } },
+      ]
+    },
+    {
+      store: 'operator',
+      storeConfig: { keyPath: 'id', autoIncrement: true },
+      storeSchema: [
+        {
+          name: 'name', keypath: 'name', options: { unique: false }
+        },
+        {
+          name: 'phone', keypath: 'phone', options: { unique: false }
+        },
+        {
+          name: 'company', keypath: 'company', options: { unique: false }
+        },
+        {
+          name: 'email', keypath: 'email', options: { unique: false }
+        }
       ]
     }]
 };
@@ -60,6 +79,9 @@ const dbConfig: DBConfig = {
     NbEvaIconsModule,
     NbButtonModule,
     SharedModule.forRoot(),
+    // NgxEchartsModule.forRoot({
+    //   echarts: () => import('echarts')
+    // }),
     NgxIndexedDBModule.forRoot(dbConfig),
   ],
   providers: [AuthGuard],
