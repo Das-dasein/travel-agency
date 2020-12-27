@@ -71,6 +71,6 @@ export class ToursComponent {
 
         this.toastr.success('Ваша заявка успешно создана', 'Успешно');
       }
-    });
+  });
   }
 }

@@ -41,6 +41,7 @@ export interface Operator {
   phone: string;
   company: string;
   email: string;
+  skype: string;
 }
 
 export interface Order {

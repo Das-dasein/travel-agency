@@ -20,7 +20,8 @@ export class OperatorsComponent {
       company: new FormControl(''),
       name: new FormControl(''),
       email: new FormControl(''),
-      phone: new FormControl('')
+      phone: new FormControl(''),
+      skype: new FormControl('')
     });
 
     this.dialog.open(template, {
