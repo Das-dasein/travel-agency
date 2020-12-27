@@ -1,4 +1,4 @@
-<div class="d-flex row mb-2">
+<div class="d-flex px-4 row mb-2">
   <span class="h1">Туры</span>
   <button class="ml-auto" status="primary" nbButton (click)="addTour()">
     <nb-icon class="mr-2" icon="plus-outline"></nb-icon> Добавить тур
@@ -12,7 +12,6 @@
           <img class="picture w-100" [src]="image | safeHtml:'url'">
         </ng-template>
       </ngb-carousel>
-      `
       <div class="details">
         <span class="h4 d-flex">
           <div class="d-flex flex-column">

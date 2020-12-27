@@ -6,8 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NbCardModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
-import { SafeHtmlPipe } from './admin/safe-html.pipe';
+import { NbButtonModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
+import { SharedModule } from 'src/shared/shared.module';
 
 export function migrationFactory() {
   // // The animal table was added with version 2 but none of the existing tables or data needed
@@ -57,7 +57,9 @@ const dbConfig: DBConfig = {
     NbDialogModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbEvaIconsModule,
-    NgxIndexedDBModule.forRoot(dbConfig)
+    NbButtonModule,
+    SharedModule.forRoot(),
+    NgxIndexedDBModule.forRoot(dbConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

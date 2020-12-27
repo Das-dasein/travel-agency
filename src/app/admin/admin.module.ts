@@ -11,25 +11,16 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import { EditTourComponent } from './tours/edit-tour/edit-tour.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, SafeHtmlPipe, EditTourComponent],
   imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    NbLayoutModule,
-    NbMenuModule,
-    NbCardModule,
-    NbButtonModule,
-    NbIconModule,
-    NbInputModule,
-    NbDatepickerModule,
     NbToastrModule.forRoot({
       position: NbGlobalLogicalPosition.BOTTOM_END
     }),
     NbDialogModule.forChild(),
-    NgbCarouselModule,
-    NgbRatingModule,
+    SharedModule,
     RouterModule.forChild([{
       path: '',
       component: AdminPanelComponent,
@@ -44,7 +35,6 @@ import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
         }
       ]
     }]),
-    NbSidebarModule
   ]
 })
 export class AdminModule {
