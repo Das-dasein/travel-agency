@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NbButtonModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { SharedModule } from 'src/shared/shared.module';
+import { AuthGuard } from './auth.guard';
 
 export function migrationFactory() {
   // // The animal table was added with version 2 but none of the existing tables or data needed
@@ -61,7 +62,7 @@ const dbConfig: DBConfig = {
     SharedModule.forRoot(),
     NgxIndexedDBModule.forRoot(dbConfig),
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

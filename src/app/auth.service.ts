@@ -14,13 +14,17 @@ export class AuthService {
     formData.append('username', login);
     formData.append('password', password);
 
-    return this.http.post(`${this.baseUrl}/login`, formData);
+    return this.http.post(`${this.baseUrl}/login`, formData, {
+      observe: 'response'
+    });
   }
 
   registration(login: string, password: string) {
     return this.http.post(`${this.baseUrl}/api/user/registration`, {
       login,
       password
+    }, {
+      responseType: 'text'
     });
   }
 }

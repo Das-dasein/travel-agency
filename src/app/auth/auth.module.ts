@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
     declarations: [AuthComponent, AuthBlockComponent, LoginComponent, RegisterComponent],
     imports: [
         SharedModule,
+        NbToastrModule.forRoot({
+            position: NbGlobalLogicalPosition.BOTTOM_END
+        }),
         RouterModule.forChild([{
             path: '',
             component: AuthComponent,
