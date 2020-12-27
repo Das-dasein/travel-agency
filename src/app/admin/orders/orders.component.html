@@ -1,0 +1,8 @@
+<nb-card>
+    <nb-card-header>
+        <span class="h3">Заказы</span>
+    </nb-card-header>
+    <nb-card-body>
+        <ng2-smart-table [settings]="settings" [source]="orders$|async"></ng2-smart-table>
+    </nb-card-body>
+</nb-card>
