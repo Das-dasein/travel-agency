@@ -42,3 +42,13 @@ export interface Operator {
   company: string;
   email: string;
 }
+
+export interface Order {
+  id: ID;
+
+  name: string;
+  email: string;
+  phone: string;
+  description: string;
+  status: 'IN_PROGRESS' | 'CLOSED' | 'PAID';
+}

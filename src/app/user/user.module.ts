@@ -8,11 +8,15 @@ import { ToursComponent } from './tours/tours.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { NbGlobalLogicalPosition, NbToastrModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [MainPageComponent, SearchBarComponent, ToursComponent, ContactsComponent, AboutUsComponent],
   imports: [
     SharedModule,
+    NbToastrModule.forRoot({
+      position: NbGlobalLogicalPosition.BOTTOM_END
+    }),
     RouterModule.forChild([{
       path: '',
       component: MainPageComponent,
