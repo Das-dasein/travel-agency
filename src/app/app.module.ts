@@ -62,7 +62,26 @@ const dbConfig: DBConfig = {
           name: 'email', keypath: 'email', options: { unique: false }
         }
       ]
-    }]
+    },
+    {
+      store: 'contact',
+      storeConfig: { keyPath: 'id', autoIncrement: true },
+      storeSchema: [
+        {
+          name: 'name', keypath: 'name', options: { unique: false }
+        },
+        {
+          name: 'email', keypath: 'email', options: { unique: false }
+        },
+        {
+          name: 'theme', keypath: 'theme', options: { unique: false }
+        },
+        {
+          name: 'message', keypath: 'message', options: { unique: false }
+        }
+      ]
+    }
+  ]
 };
 
 @NgModule({

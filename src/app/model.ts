@@ -11,6 +11,15 @@ export interface Tour {
   price: number;
 }
 
+export interface Message {
+  id: ID;
+
+  name: string;
+  email: string;
+  theme: string;
+  message: string;
+}
+
 export type ID = number;
 export type Country = string;
 export type City = string;

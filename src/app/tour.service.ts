@@ -3,7 +3,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { ID, Operator, Tour } from './model';
+import {ID, Message, Operator, Tour} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +33,13 @@ export class TourService {
 
   addOperator(operator: Operator): Observable<Operator[]> {
     return this.api.add('operator', operator).pipe(switchMap(() => this.getOperators()))
+  }
+
+  getContactMessages(): Observable<Message[]> {
+    return this.api.getAll('contact');
+  }
+
+  addContact(contact: Message): Observable<Message[]> {
+    return this.api.add('contact', contact).pipe(switchMap(() => this.getContactMessages()))
   }
 }

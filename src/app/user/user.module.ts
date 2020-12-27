@@ -7,6 +7,7 @@ import { RouterModule } from "@angular/router";
 import { ToursComponent } from './tours/tours.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   declarations: [MainPageComponent, SearchBarComponent, ToursComponent, ContactsComponent, AboutUsComponent],
@@ -25,6 +26,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
       path: 'contacts',
       component: ContactsComponent,
     }]),
+    CKEditorModule,
   ]
 })
 export class UserModule {
