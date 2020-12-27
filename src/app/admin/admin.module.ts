@@ -12,9 +12,10 @@ import { VisitorsAnalyticsChartComponent } from './visitors-analytics/visitors-a
 import { NgxEchartsModule } from 'ngx-echarts';
 import { OperatorsComponent } from './operators/operators.component';
 import { CKEditorModule } from 'ng2-ckeditor';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
-  declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, EditTourComponent, VisitorsAnalyticsComponent, VisitorsAnalyticsChartComponent, OperatorsComponent],
+  declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, EditTourComponent, VisitorsAnalyticsComponent, VisitorsAnalyticsChartComponent, OperatorsComponent, ContactsComponent],
   imports: [
     NbToastrModule.forRoot({
       position: NbGlobalLogicalPosition.BOTTOM_END
@@ -36,6 +37,10 @@ import { CKEditorModule } from 'ng2-ckeditor';
         {
           path: 'insights',
           component: InsightsComponent
+        },
+        {
+          path: 'contacts',
+          component: ContactsComponent
         }
       ]
     }]),
