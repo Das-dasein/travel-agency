@@ -1,5 +1,5 @@
 <div class="tours-page-container position-relative">
-    <app-search-bar class="search-bar"></app-search-bar>
+    <app-search-bar class="search-bar" (search)="handleSearch($event)"></app-search-bar>
 </div>
 <div class="w-75 ml-auto mr-auto d-flex flex-wrap mt-3">
     <div class="col-4" *ngFor="let tour of tours$ | async">
@@ -14,7 +14,10 @@
             </nb-card-header>
 
             <div class="details p-4">
-                <span class="h5 d-flex">
+                <span class="h5 d-flex flex-column">
+                    <div class="days">
+                        {{tour.duration}} суток
+                    </div>
                     <div class="d-flex flex-column">
                         <div>
                             {{tour.country}}, {{tour.city}}
