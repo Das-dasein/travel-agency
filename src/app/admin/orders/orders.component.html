@@ -55,12 +55,12 @@
             </nb-card>
             <div class="form-group">
                 <label class="label d-block">Количество мест</label>
-                <input [(ngModel)]="data.count" nbInput type="number" [disabled]="data.order.status !== 'IN_PROGRESS'">
+                <input [(ngModel)]="data.countObj.count" nbInput type="number" [disabled]="data.order.status !== 'IN_PROGRESS'">
             </div>
             <span class="h5">
                 Итого к оплате:
                 <span class="price">
-                    {{data.count * data.tour.price }} Р
+                    {{data.countObj.count * data.tour.price }} Р
                 </span>
             </span>
         </nb-card-body>

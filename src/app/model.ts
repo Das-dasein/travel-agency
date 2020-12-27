@@ -52,5 +52,6 @@ export interface Order {
   phone: string;
   description: string;
   tour: ID;
+  count: number;
   status: 'IN_PROGRESS' | 'CLOSED' | 'PAID' | 'AWAITING_PAYMENT';
 }

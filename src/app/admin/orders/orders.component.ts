@@ -51,20 +51,23 @@ export class OrdersComponent {
   constructor(private readonly api: TourService, private readonly dialog: NbDialogService) { }
 
   handleRowSelect({ data }: { data: Order }, template: TemplateRef<any>) {
-    const count = 1;
+    const countObj = {
+      count: data.count ?? 1
+    };
     this.api.getTour(data.tour).subscribe(tour => {
       this.dialog.open(template, {
         context: {
           order: data,
           tour,
-          count
+          countObj
         }
       }).onClose.subscribe((status) => {
         if (status) {
           this.orders$ = status === 'CLOSED' ? this.api.deleteOrder(data.id) :
             this.api.updateOrder({
               ...data,
-              status
+              status,
+              count: countObj.count
             });
         }
       });
