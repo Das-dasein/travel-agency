@@ -16,5 +16,5 @@
 .search-bar {
   position: absolute;
   top: 35%;
-  left: 21%;
+  left: calc((100% - 1100px) / 2);
 }
