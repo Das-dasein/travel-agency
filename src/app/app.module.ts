@@ -79,9 +79,6 @@ const dbConfig: DBConfig = {
     NbEvaIconsModule,
     NbButtonModule,
     SharedModule.forRoot(),
-    // NgxEchartsModule.forRoot({
-    //   echarts: () => import('echarts')
-    // }),
     NgxIndexedDBModule.forRoot(dbConfig),
   ],
   providers: [AuthGuard],
