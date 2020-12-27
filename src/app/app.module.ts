@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NbButtonModule, NbDatepickerModule, NbDialogModule, NbMenuModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
 import { SharedModule } from 'src/shared/shared.module';
+import { HeaderComponent } from './header/header.component';
 
 export function migrationFactory() {
   // // The animal table was added with version 2 but none of the existing tables or data needed
@@ -47,6 +48,7 @@ const dbConfig: DBConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [BrowserAnimationsModule,
     BrowserModule,

@@ -10,10 +10,10 @@ export class AppComponent {
   title = 'travel-agency';
 
   constructor(private dbService: NgxIndexedDBService) {
-    // this.dbService
-    //   .add('tour', migration[0])
-    //   .subscribe((key) => {
-    //     console.log('key: ', key);
-    //   });
+    this.dbService
+      .add('tour', migration[0])
+      .subscribe((key) => {
+        console.log('key: ', key);
+      });
   }
 }

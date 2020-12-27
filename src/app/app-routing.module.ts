@@ -7,7 +7,12 @@ const routes: Routes = [{
 }, {
   path: 'auth',
   loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-}];
+}, {
+  path: '',
+  loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],

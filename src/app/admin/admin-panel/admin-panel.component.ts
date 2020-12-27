@@ -19,6 +19,11 @@ export class AdminPanelComponent {
     title: 'Чарты',
     icon: 'pie-chart-outline',
     // pathMatch: 'prefix'
+  }, {
+    link: 'contacts',
+    title: 'Обращения',
+    icon: 'book-open-outline',
+    // pathMatch: 'prefix'
   }];
 
 
