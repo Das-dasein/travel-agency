@@ -16,6 +16,7 @@ import { VisitorsAnalyticsComponent } from './visitors-analytics/visitors-analyt
 import { VisitorsAnalyticsChartComponent } from './visitors-analytics/visitors-analytics-chart/visitors-analytics-chart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { OperatorsComponent } from './operators/operators.component';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, SafeHtmlPipe, EditTourComponent, VisitorsAnalyticsComponent, VisitorsAnalyticsChartComponent, OperatorsComponent],
@@ -24,10 +25,11 @@ import { OperatorsComponent } from './operators/operators.component';
       position: NbGlobalLogicalPosition.BOTTOM_END
     }),
     NbDialogModule.forChild(),
-    SharedModule, 
+    SharedModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     }),
+    CKEditorModule,
     RouterModule.forChild([{
       path: '',
       component: AdminPanelComponent,

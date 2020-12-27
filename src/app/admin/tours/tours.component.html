@@ -7,7 +7,8 @@
 <div class="tours-container">
   <div class="col-6" *ngFor="let tour of tours$ | async">
     <nb-card class="d-flex flex-row" [size]="'small'">
-      <ngb-carousel class="col-4 px-0" [showNavigationArrows]="false" [showNavigationIndicators]="false" [pauseOnHover]="true">
+      <ngb-carousel class="col-4 px-0" [showNavigationArrows]="false" [showNavigationIndicators]="false"
+        [pauseOnHover]="true">
         <ng-template ngbSlide *ngFor="let image of tour.images">
           <img class="picture w-100" [src]="image | safeHtml:'url'">
         </ng-template>
@@ -31,8 +32,7 @@
           <nb-icon class="ml-auto mr-3" icon="edit-2-outline" (click)="editTour(tour)"></nb-icon>
           <nb-icon icon="trash-2-outline" (click)="removeTour(tour)"></nb-icon>
         </span>
-        <div class="description">
-          {{tour.description}}
+        <div class="description" [innerHTML]="tour.description | safeHtml:'html'">
         </div>
       </div>
     </nb-card>
