@@ -19,16 +19,18 @@ export class AdminPanelComponent {
     title: 'Чарты',
     icon: 'pie-chart-outline',
     // pathMatch: 'prefix'
-  }, {
+  },
+  {
+    link: 'orders',
+    title: 'Заказы',
+    icon: 'people-outline'
+  },
+  {
     link: 'contacts',
     title: 'Обращения',
     icon: 'book-open-outline',
     // pathMatch: 'prefix'
-  }, {
-    link: 'orders',
-    title: 'Заказы',
-    icon: 'people-outline'
-  }];
+  }, ];
 
 
   constructor(public route: ActivatedRoute) {
