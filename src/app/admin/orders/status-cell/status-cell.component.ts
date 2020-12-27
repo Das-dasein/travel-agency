@@ -11,7 +11,7 @@ export class StatusCellComponent implements ViewCell {
   @Input() rowData: any;
 
   statusMap = {
-    'IN_PROGRESS': 'Ожидает',
+    'IN_PROGRESS': 'Ожидает обработки',
     'CLOSED': 'Закрыто',
     'PAID': 'Оплачено',
     'AWAITING_PAYMENT': 'Ожидает оплаты',
