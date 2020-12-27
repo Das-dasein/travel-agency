@@ -15,9 +15,10 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { OrdersComponent } from './orders/orders.component';
 import { PhoneCellComponent } from './orders/phone-cell/phone-cell.component';
 import { EmailCellComponent } from './orders/email-cell/email-cell.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
-  declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, EditTourComponent, VisitorsAnalyticsComponent, VisitorsAnalyticsChartComponent, OperatorsComponent, OrdersComponent, PhoneCellComponent, EmailCellComponent],
+  declarations: [AdminPanelComponent, ToursComponent, InsightsComponent, EditTourComponent, VisitorsAnalyticsComponent, VisitorsAnalyticsChartComponent, OperatorsComponent, OrdersComponent, ContactsComponent, PhoneCellComponent, EmailCellComponent],
   imports: [
     NbToastrModule.forRoot({
       position: NbGlobalLogicalPosition.BOTTOM_END
@@ -43,6 +44,9 @@ import { EmailCellComponent } from './orders/email-cell/email-cell.component';
         {
           path: 'orders',
           component: OrdersComponent
+        }, {
+          path: 'contacts',
+          component: ContactsComponent
         }
       ]
     }]),
