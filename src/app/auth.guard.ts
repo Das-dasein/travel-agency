@@ -8,8 +8,10 @@ import { TokenStorageService } from './token-storage.service';
 export class AuthGuard implements CanActivate {
   constructor(private token: TokenStorageService) { }
 
-  canActivate(): boolean {
-    return this.token.isAuthenticated();
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    const notAuth = route.data.notAuth;
+
+    return notAuth ? !this.token.isAuthenticated() : this.token.isAuthenticated();
   }
 
 }

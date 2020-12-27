@@ -10,6 +10,7 @@ import { AuthBlockComponent } from './auth-block/auth-block.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from '../auth.guard';
 
 @NgModule({
     declarations: [AuthComponent, AuthBlockComponent, LoginComponent, RegisterComponent],
@@ -24,10 +25,15 @@ import { RegisterComponent } from './register/register.component';
             children: [
                 {
                     path: 'login',
+                    canActivate: [AuthGuard],
+                    data: {
+                        notAuth: true
+                    },
                     component: LoginComponent
                 },
                 {
                     path: 'register',
+                    canActivate: [AuthGuard],
                     component: RegisterComponent
                 }
             ]
