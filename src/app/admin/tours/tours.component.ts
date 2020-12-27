@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Tour } from 'src/app/model';
 
-import { TourService } from '../tour.service';
+import { TourService } from '../../tour.service';
 import { EditTourComponent } from './edit-tour/edit-tour.component';
 
 @Component({

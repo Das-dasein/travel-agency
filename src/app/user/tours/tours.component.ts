@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { TourService } from 'src/app/tour.service';
 
 @Component({
   selector: 'app-tours',
   templateUrl: './tours.component.html',
   styleUrls: ['./tours.component.scss']
 })
-export class ToursComponent implements OnInit {
+export class ToursComponent {
+  tours$ = this.api.getTours();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(private readonly api: TourService) { }
 }

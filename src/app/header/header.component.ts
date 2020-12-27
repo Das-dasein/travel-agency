@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class HeaderComponent {
+  items: NbMenuItem[] = [{
+    title: "Главная",
+    link: '/'
+  },
+  {
+    title: "Туры",
+    link: '/tours'
+  },
+  {
+    title: "Контакты",
+  },
+  {
+    title: "О нас"
+  }]
 }

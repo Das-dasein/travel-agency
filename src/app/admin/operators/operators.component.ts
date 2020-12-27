@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { NbDialogService } from '@nebular/theme';
 import { Observable } from 'rxjs';
 import { Operator } from 'src/app/model';
-import { TourService } from '../tour.service';
+import { TourService } from '../../tour.service';
 
 @Component({
   selector: 'app-operators',

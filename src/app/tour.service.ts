@@ -3,7 +3,7 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { ID, Operator, Tour } from '../model';
+import { ID, Operator, Tour } from './model';
 
 @Injectable({
   providedIn: 'root'

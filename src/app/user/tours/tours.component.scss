@@ -1,7 +1,36 @@
 .tours-page-container {
     background-position: 50% 0%;
-    background-image: url(../../../../src/assets/images/tours-page.PNG);
+    background-image: url(/assets/images/tours-page.PNG);
     background-repeat: no-repeat;
     background-size: 100%;
     height: calc(100vh - 60px);
+}
+
+.search-bar {
+    position: absolute;
+    left: calc(50% - (1100px / 2));
+    bottom: 0;
+}
+
+:host::ng-deep {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+        height: 100%;
+    }
+}
+
+.picture {
+    height: 100%;
+    object-fit: fill;
+    border-radius: 0.25rem;
+}
+
+nb-card-header {
+    height: 270px;
+}
+.price-button {
+    position: absolute;
+    bottom: -20px;
+    left: calc((100% - 154px) / 2);
 }

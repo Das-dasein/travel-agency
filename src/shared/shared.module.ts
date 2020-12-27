@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NbActionsModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbFormFieldModule, NbIconModule, NbInputModule, NbLayoutModule, NbListModule, NbMenuModule, NbSidebarModule, NbToastrModule, NbUserModule } from '@nebular/theme';
 import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { SafeHtmlPipe } from 'src/app/safe-html.pipe';
 
 const modules = [
   CommonModule,
@@ -27,11 +28,14 @@ const modules = [
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SafeHtmlPipe,
+  ],
   imports: [
     ...modules
   ],
   exports: [
+    SafeHtmlPipe,
     ...modules
   ]
 })
