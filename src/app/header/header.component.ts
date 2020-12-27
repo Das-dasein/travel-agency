@@ -17,8 +17,10 @@ export class HeaderComponent {
   },
   {
     title: "Контакты",
+    link: '/contacts'
   },
   {
-    title: "О нас"
+    title: "О нас",
+    link: '/about-us'
   }]
 }

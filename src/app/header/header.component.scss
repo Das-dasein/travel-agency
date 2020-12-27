@@ -43,3 +43,12 @@
 .logo-under-text {
   font-size: 12px;
 }
+
+:host::ng-deep .menu {
+  .menu-items {
+    display: flex;
+    .menu-item {
+      border-bottom: none; 
+    }
+  }
+}

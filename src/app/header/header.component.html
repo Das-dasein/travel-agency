@@ -4,10 +4,5 @@
     <div class="logo-under-text">Туристическое агентство</div>
   </div>
 
-  <div class="navs">
-    <div class="menu-item" routerLink="./"><a>Главная</a></div>
-    <div [routerLink]="'./tours'" class="menu-item"><a>Туры</a></div>
-    <div routerLink="./contacts" class="menu-item"><a>Контакты</a></div>
-    <div routerLink="./about-us" class="menu-item"><a>О нас</a></div>
-  </div>
+  <nb-menu class="ml-auto menu" [items]="items"></nb-menu>
 </nb-layout-header>
