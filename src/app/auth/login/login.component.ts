@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import { AuthService } from 'src/app/auth.service';
+import { INVALID_LOGIN_STATUS, TokenStorageService, TOKEN_HEADER } from 'src/app/token-storage.service';
 
 @Component({
   selector: 'app-login.w-50.ml-auto.mr-auto"',
@@ -13,9 +17,30 @@ export class LoginComponent {
     password: ''
   });
 
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private token: TokenStorageService,
+    private router: Router,
+    private toastr: NbToastrService
+  ) { }
 
   login() {
-    return this.auth.login(this.form.value.login, this.form.value.password).subscribe(a => console.log(a));
+    return this.auth.login(this.form.value.login, this.form.value.password)
+      .subscribe((response: HttpResponse<any>) => {
+        const token = response.headers.get(TOKEN_HEADER);
+
+        if (response.status === INVALID_LOGIN_STATUS || !token) {
+          this.toastr.danger('Неправильный логин/пароль', 'Не удалось войти');
+
+          return;
+        }
+
+        this.token.saveToken(token);
+
+        setTimeout(() => {
+          this.router.navigate(['../../admin/tours'])
+        }, 300);
+      })
   }
 }

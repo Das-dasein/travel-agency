@@ -25,3 +25,10 @@ export interface Hotel {
 }
 
 export type Room = {}
+
+export interface Operator {
+  name: string;
+  phone: string;
+  company: string;
+  email: string;
+}
