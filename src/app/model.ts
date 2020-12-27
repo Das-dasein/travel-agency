@@ -9,6 +9,7 @@ export interface Tour {
   startDate: TourDate;
   endDate: TourDate;
   price: number;
+  duration: number;
 }
 
 export interface Message {
