@@ -51,5 +51,6 @@ export interface Order {
   email: string;
   phone: string;
   description: string;
-  status: 'IN_PROGRESS' | 'CLOSED' | 'PAID';
+  tour: ID;
+  status: 'IN_PROGRESS' | 'CLOSED' | 'PAID' | 'AWAITING_PAYMENT';
 }

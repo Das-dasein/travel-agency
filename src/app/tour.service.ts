@@ -50,4 +50,12 @@ export class TourService {
   getOrders() {
     return this.api.getAll('order');
   }
+
+  getTour(id: number): Observable<Tour> {
+    return this.api.getByKey('tour', id);
+  } 
+
+  updateOrder(order: Order): Observable<Order[]> {
+    return this.api.update('order', order);
+  }
 }

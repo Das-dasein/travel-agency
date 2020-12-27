@@ -71,7 +71,7 @@ export class ToursComponent {
           tour: tour.id
         });
 
-        this.toastr.success('Ваша заявка успешно создана', 'Успешно');
+        this.toastr.success('Ваша заявка успешно создана. Оператор свяжется с Вами.', 'Успешно');
       }
     });
   }

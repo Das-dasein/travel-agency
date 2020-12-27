@@ -6,9 +6,11 @@ import { NbActionsModule, NbButtonModule, NbCardModule, NbDatepickerModule, NbFo
 import { NgbCarouselModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { SafeHtmlPipe } from 'src/app/safe-html.pipe';
+import { FormsModule } from '@angular/forms';
 
 const modules = [
   CommonModule,
+  FormsModule,
   HttpClientModule,
   ReactiveFormsModule,
   NbLayoutModule,
